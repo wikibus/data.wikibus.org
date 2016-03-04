@@ -1,0 +1,1 @@
+web: mono bin/Debug/data.wikibus.org.exe $PORT

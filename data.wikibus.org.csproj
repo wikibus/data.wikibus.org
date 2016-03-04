@@ -9,9 +9,10 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>data.wikibus.org</RootNamespace>
     <AssemblyName>data.wikibus.org</AssemblyName>
-    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -33,32 +34,32 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="DatabaseSchemaReader, Version=1.2.8.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>packages\DatabaseSchemaReader.1.2.8.0\lib\net40\DatabaseSchemaReader.dll</HintPath>
+    <Reference Include="DatabaseSchemaReader, Version=1.4.4.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\DatabaseSchemaReader.1.4.4.0\lib\net40\DatabaseSchemaReader.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="dotNetRDF, Version=1.0.0.2473, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>packages\dotNetRDF.1.0.0.2473\lib\net40\dotNetRDF.dll</HintPath>
+    <Reference Include="dotNetRDF, Version=1.0.9.3683, Culture=neutral, PublicKeyToken=6055ffe4c97cc780, processorArchitecture=MSIL">
+      <HintPath>packages\dotNetRDF.1.0.9.3683\lib\net40\dotNetRDF.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="HtmlAgilityPack, Version=1.4.6.0, Culture=neutral, PublicKeyToken=bd319b19eaf3b43a, processorArchitecture=MSIL">
-      <HintPath>packages\HtmlAgilityPack.1.4.6\lib\Net45\HtmlAgilityPack.dll</HintPath>
+    <Reference Include="HtmlAgilityPack, Version=1.4.9.0, Culture=neutral, PublicKeyToken=bd319b19eaf3b43a, processorArchitecture=MSIL">
+      <HintPath>packages\HtmlAgilityPack.1.4.9\lib\Net45\HtmlAgilityPack.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Hydra, Version=0.1.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>packages\Hydra.0.1.0-pre0295\lib\net45\Hydra.dll</HintPath>
+      <HintPath>packages\Hydra.0.1.0-pre0298\lib\net45\Hydra.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="ImageResizer, Version=3.0.9.20805, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>packages\ImageResizer.3.0.9\lib\ImageResizer.dll</HintPath>
+    <Reference Include="ImageResizer, Version=4.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\ImageResizer.4.0.5\lib\net45\ImageResizer.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="JsonLD, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>packages\json-ld.net.1.0.0\lib\net40\JsonLD.dll</HintPath>
+    <Reference Include="JsonLD, Version=1.0.4.0, Culture=neutral, PublicKeyToken=2e465378e3b1a8dd, processorArchitecture=MSIL">
+      <HintPath>packages\json-ld.net.1.0.4\lib\net40-Client\JsonLD.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="JsonLD.Entities, Version=0.3.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>packages\JsonLd.Entities.0.3.0\lib\net40\JsonLD.Entities.dll</HintPath>
+    <Reference Include="JsonLD.Entities, Version=0.3.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\JsonLD.Entities.0.3.1-pre0008\lib\net40\JsonLD.Entities.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.Owin, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -78,7 +79,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Nancy.Hydra, Version=0.1.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>packages\Nancy.Hydra.0.1.0-pre0295\lib\net45\Nancy.Hydra.dll</HintPath>
+      <HintPath>packages\Nancy.Hydra.0.1.0-pre0298\lib\net45\Nancy.Hydra.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Nancy.Owin, Version=1.4.1.0, Culture=neutral, processorArchitecture=MSIL">
@@ -86,7 +87,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Nancy.RDF, Version=0.2.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>packages\Nancy.RDF.0.2.0-pre0023\lib\net40\Nancy.RDF.dll</HintPath>
+      <HintPath>packages\Nancy.RDF.0.2.0-pre0030\lib\net40\Nancy.RDF.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=8.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
@@ -109,28 +110,28 @@
       <HintPath>packages\r2rml4net.0.4.0.0-pre01\lib\net40\TCode.r2rml4net.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="VDS.Common, Version=1.2.0.0, Culture=neutral, PublicKeyToken=ab5f4eb908061bf0, processorArchitecture=MSIL">
-      <HintPath>packages\VDS.Common.1.2.0\lib\net40-client\VDS.Common.dll</HintPath>
+    <Reference Include="VDS.Common, Version=1.6.0.0, Culture=neutral, PublicKeyToken=ab5f4eb908061bf0, processorArchitecture=MSIL">
+      <HintPath>packages\VDS.Common.1.6.0\lib\net40-client\VDS.Common.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="wikibus.common, Version=0.1.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>packages\wikibus.common.0.1.0-pre0295\lib\net45\wikibus.common.dll</HintPath>
+      <HintPath>packages\wikibus.common.0.1.0-pre0298\lib\net45\wikibus.common.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="wikibus.nancy, Version=0.1.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>packages\wikibus.nancy.0.1.0-pre0295\lib\net45\wikibus.nancy.dll</HintPath>
+      <HintPath>packages\wikibus.nancy.0.1.0-pre0298\lib\net45\wikibus.nancy.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="wikibus.sources, Version=0.1.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>packages\wikibus.sources.0.1.0-pre0295\lib\net45\wikibus.sources.dll</HintPath>
+      <HintPath>packages\wikibus.sources.0.1.0-pre0298\lib\net45\wikibus.sources.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="wikibus.sources.dotNetRDF, Version=0.1.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>packages\wikibus.sources.dotNetRDF.0.1.0-pre0295\lib\net45\wikibus.sources.dotNetRDF.dll</HintPath>
+      <HintPath>packages\wikibus.sources.dotNetRDF.0.1.0-pre0298\lib\net45\wikibus.sources.dotNetRDF.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="wikibus.sources.nancy, Version=0.1.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>packages\wikibus.sources.nancy.0.1.0-pre0295\lib\net45\wikibus.sources.nancy.dll</HintPath>
+      <HintPath>packages\wikibus.sources.nancy.0.1.0-pre0298\lib\net45\wikibus.sources.nancy.dll</HintPath>
       <Private>True</Private>
     </Reference>
   </ItemGroup>
@@ -143,6 +144,10 @@
     <None Include="App.config">
       <SubType>Designer</SubType>
     </None>
+    <Content Include="config.ttl">
+      <LastGenOutput>config1.feature.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

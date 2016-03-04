@@ -1,6 +1,9 @@
 ﻿using System;
 using Microsoft.Owin.Hosting;
+using Nancy;
+using Nancy.Bootstrapper;
 using Owin;
+using wikibus.nancy;
 
 namespace data.wikibus.org
 {
@@ -38,7 +41,11 @@ namespace data.wikibus.org
                 Console.WriteLine(context.Request.Uri);
                 await func();
             });
-            builder.UseNancy();
+
+#if DEBUG
+            StaticConfiguration.DisableErrorTraces = false;
+#endif
+            builder.UseNancy(options => options.Bootstrapper = new Bootstrapper());
         }
     }
 }

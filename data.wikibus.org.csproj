@@ -47,7 +47,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Hydra, Version=0.1.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>packages\Hydra.0.1.0-pre0298\lib\net45\Hydra.dll</HintPath>
+      <HintPath>packages\Hydra.0.1.0-pre0301\lib\net45\Hydra.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="ImageResizer, Version=4.0.0.0, Culture=neutral, processorArchitecture=MSIL">
@@ -79,7 +79,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Nancy.Hydra, Version=0.1.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>packages\Nancy.Hydra.0.1.0-pre0298\lib\net45\Nancy.Hydra.dll</HintPath>
+      <HintPath>packages\Nancy.Hydra.0.1.0-pre0301\lib\net45\Nancy.Hydra.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Nancy.Owin, Version=1.4.1.0, Culture=neutral, processorArchitecture=MSIL">
@@ -115,27 +115,28 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="wikibus.common, Version=0.1.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>packages\wikibus.common.0.1.0-pre0298\lib\net45\wikibus.common.dll</HintPath>
+      <HintPath>packages\wikibus.common.0.1.0-pre0301\lib\net45\wikibus.common.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="wikibus.nancy, Version=0.1.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>packages\wikibus.nancy.0.1.0-pre0298\lib\net45\wikibus.nancy.dll</HintPath>
+      <HintPath>packages\wikibus.nancy.0.1.0-pre0301\lib\net45\wikibus.nancy.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="wikibus.sources, Version=0.1.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>packages\wikibus.sources.0.1.0-pre0298\lib\net45\wikibus.sources.dll</HintPath>
+      <HintPath>packages\wikibus.sources.0.1.0-pre0301\lib\net45\wikibus.sources.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="wikibus.sources.dotNetRDF, Version=0.1.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>packages\wikibus.sources.dotNetRDF.0.1.0-pre0298\lib\net45\wikibus.sources.dotNetRDF.dll</HintPath>
+      <HintPath>packages\wikibus.sources.dotNetRDF.0.1.0-pre0301\lib\net45\wikibus.sources.dotNetRDF.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="wikibus.sources.nancy, Version=0.1.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>packages\wikibus.sources.nancy.0.1.0-pre0298\lib\net45\wikibus.sources.nancy.dll</HintPath>
+      <HintPath>packages\wikibus.sources.nancy.0.1.0-pre0301\lib\net45\wikibus.sources.nancy.dll</HintPath>
       <Private>True</Private>
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Configuration.cs" />
     <Compile Include="HydraStartup.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

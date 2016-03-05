@@ -1,9 +1,11 @@
 ﻿using System;
+using System.Configuration;
 using data.wikibus.org;
 using Microsoft.Owin;
 using Nancy;
 using Owin;
 using wikibus.nancy;
+using wikibus.sources.dotNetRDF;
 
 [assembly: OwinStartup(typeof(Startup))]
 
@@ -23,6 +25,14 @@ namespace data.wikibus.org
             StaticConfiguration.DisableErrorTraces = false;
 #endif
             builder.UseNancy(options => options.Bootstrapper = new Bootstrapper());
+        }
+    }
+
+    public class Settings : ISourcesDatabaseConnectionStringProvider
+    {
+        public string ConnectionString
+        {
+            get { return ConfigurationManager.ConnectionStrings["sql"].ConnectionString; }
         }
     }
 }

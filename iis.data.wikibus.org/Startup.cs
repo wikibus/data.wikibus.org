@@ -21,9 +21,7 @@ namespace data.wikibus.org
                 await func();
             });
 
-#if DEBUG
             StaticConfiguration.DisableErrorTraces = false;
-#endif
             builder.UseNancy(options => options.Bootstrapper = new Bootstrapper());
         }
     }

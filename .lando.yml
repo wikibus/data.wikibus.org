@@ -1,0 +1,55 @@
+name: wikibus
+services:
+  sources:
+    type: node:custom
+    build:
+      - npm i -g nodemon
+    command: nodemon -w packages -w apps --ignore **/*.ttl --ignore **/*.env.json --ext ts,js --exec npm --prefix apps/sources --node-options --inspect=0.0.0.0:8889 --inspect start
+    port: 8888
+    ssl: true
+    overrides:
+      image: node:14
+      ports:
+        - '8889:8889'
+      environment:
+        TS_NODE_TRANSPILE_ONLY: "true"
+        DEBUG: wikibus*,hydra*,hydra-box*,labyrinth*,SPARQL,-labyrinth:request:headers
+        AUTH_JWKS_URI: https://wikibus.eu.auth0.com/.well-known/jwks.json
+        AUTH_ISSUER: wikibus.eu.auth0.com
+        AUTH_AUDIENCE: https://wikibus.org
+    moreHttpPorts:
+      - 8889
+    scanner: false
+  store:
+    type: compose
+    volumes:
+      agdata:
+      agconfig:
+    ports:
+      - 10000-10035:10000-10035
+    run:
+      - agtool repos create http://wikibus:wikibus@127.0.0.1:10035/repositories/wikibus
+    services:
+      image: franzinc/agraph
+      command: /entrypoint.sh
+      shm_size: 1g
+      environment:
+        AGRAPH_SUPER_USER: wikibus
+        AGRAPH_SUPER_PASSWORD: wikibus
+        ENABLE_DATA_WRITE: "true"
+        ENABLE_UPDATE: "true"
+        ENABLE_UPLOAD: "true"
+      volumes:
+        - agdata:/agraph/data
+        - agconfig:/agraph/etc
+
+tooling:
+  agtool:
+    service: store
+    cmd: agtool
+
+proxy:
+  store:
+    - db.wikibus.lndo.site:10035
+  sources:
+    - sources.wikibus.lndo.site:8888

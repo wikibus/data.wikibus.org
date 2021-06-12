@@ -1,0 +1,19 @@
+{
+  "name": "@wikibus/sources",
+  "version": "0.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:wikibus/data.wikibus.org.git",
+  "author": "tpluscode <tpluscode@users.noreply.github.com>",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "bootstrap": "talos put --vocabs --resources --api https://sources.wikibus.lndo.site --endpoint http://db.wikibus.lndo.site/repositories/wikibus --user wikibus --password wikibus",
+    "start": "knossos serve http://store:10035/repositories/wikibus?infer=true --name wikibus --authModule ./sources/middleware/authenticate --codePath ./sources --user wikibus --password wikibus"
+  },
+  "dependencies": {
+    "@hydrofoil/knossos": "^0.1.0"
+  },
+  "devDependencies": {
+    "@hydrofoil/talos": "^0.1.0"
+  }
+}

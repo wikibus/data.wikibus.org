@@ -1,4 +1,7 @@
-@prefix hydra: <http://www.w3.org/ns/hydra/core#> .
+prefix hydra: <http://www.w3.org/ns/hydra/core#>
 
-<> a hydra:Resource .
+<>
+    a hydra:Resource, </api/EntryPoint> ;
+    <api/brochures> <brochures> ;
+.
 

@@ -1,0 +1,51 @@
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX bibo: <http://purl.org/ontology/bibo/>
+PREFIX opus: <http://lsdis.cs.uga.edu/projects/semdis/opus#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+prefix sh: <http://www.w3.org/ns/shacl#>
+prefix wbo: <https://wikibus.org/ontology#>
+
+<>
+    a sh:NodeShape ;
+    sh:targetClass wbo:Source ;
+    rdfs:label "Base information" ;
+    sh:property
+        [
+            sh:path dcterms:language ;
+            sh:name "languages" ;
+            sh:order 20 ;
+        ],
+        [
+            sh:path bibo:pages ;
+            sh:name "pages" ;
+            sh:order 30 ;
+        ] ;
+    sh:xone
+        (
+            [
+                sh:property
+                    [
+                        sh:path dcterms:date ;
+                        sh:datatype xsd:date ;
+                        sh:name "date" ;
+                        sh:order 50 ;
+                    ]
+            ]
+            [
+                sh:property
+                    [
+                        sh:path opus:year ;
+                        sh:name "year" ;
+                        sh:datatype xsd:gYear ;
+                        sh:order 50 ;
+                    ],
+                    [
+                        sh:path opus:month ;
+                        sh:name "month" ;
+                        sh:datatype xsd:gMonth ;
+                        sh:order 60 ;
+                    ]
+            ]
+        )
+.

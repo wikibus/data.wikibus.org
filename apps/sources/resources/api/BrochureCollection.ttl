@@ -1,0 +1,37 @@
+PREFIX schema: <http://schema.org/>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX acl: <http://www.w3.org/ns/auth/acl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX hydra: <http://www.w3.org/ns/hydra/core#>
+prefix auth: <https://hypermedia.app/auth#>
+prefix code: <https://code.described.at/>
+prefix knossos: <https://hypermedia.app/knossos#>
+
+<>
+    a hydra:Class ;
+    rdfs:subClassOf hydra:Collection ;
+    hydra:apiDocumentation </api> ;
+    hydra:supportedOperation
+        [
+            a schema:CreateAction ;
+            auth:access acl:Create ;
+            hydra:method "POST" ;
+            hydra:title "Create brochure" ;
+            code:implementedBy
+                [
+                    a code:EcmaScript ;
+                    code:link <node:@hydrofoil/knossos/collection#CreateMember> ;
+                ] ;
+        ] ;
+    knossos:memberTemplate
+        [
+            a hydra:IriTemplate ;
+            hydra:template "/brochure/{title}" ;
+            hydra:mapping
+                [
+                    hydra:variable "title" ;
+                    hydra:property dcterms:title ;
+                    hydra:required true ;
+                ] ;
+        ]
+.

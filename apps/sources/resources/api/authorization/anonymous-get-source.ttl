@@ -1,0 +1,10 @@
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix hydra: <http://www.w3.org/ns/hydra/core#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix acl: <http://www.w3.org/ns/auth/acl#> .
+prefix wbo: <https://wikibus.org/ontology#>
+
+<> a acl:Authorization ;
+   acl:agentClass foaf:Agent ;
+   acl:accessToClass wbo:Source ;
+   acl:mode acl:Read .

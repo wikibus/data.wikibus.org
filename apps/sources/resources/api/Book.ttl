@@ -1,0 +1,45 @@
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX opus: <http://lsdis.cs.uga.edu/projects/semdis/opus#>
+PREFIX schema: <http://schema.org/>
+PREFIX bibo: <http://purl.org/ontology/bibo/>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+prefix sh: <http://www.w3.org/ns/shacl#>
+prefix wbo: <https://wikibus.org/ontology#>
+
+<>
+    a sh:NodeShape ;
+    sh:targetClass wbo:Brochure ;
+    rdfs:label "Book details" ;
+    sh:property
+        [
+            sh:name "title" ;
+            sh:minCount 1 ;
+            sh:maxCount 1 ;
+            sh:datatype xsd:string ;
+            sh:order 10 ;
+        ],
+        [
+            sh:path schema:isbn ;
+            sh:maxCount 1 ;
+            sh:name "ISBN" ;
+            sh:order 20 ;
+        ],
+        [
+            sh:path schema:author ;
+            sh:name "Author" ;
+            sh:maxCount 1 ;
+            sh:order 30 ;
+            sh:nodeKind sh:BlankNode ;
+            sh:node
+                [
+                    sh:property
+                        [
+                           sh:path schema:name ;
+                           sh:name "Name" ;
+                           sh:minCount 1 ;
+                           sh:maxCount 1 ;
+                        ]
+                ]
+        ] ;
+.

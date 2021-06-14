@@ -1,0 +1,76 @@
+PREFIX wbo: <https://wikibus.org/ontology#>
+PREFIX wba: <https://sources.wikibus.lndo.site/api/>
+PREFIX hydra: <http://www.w3.org/ns/hydra/core#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX bibo: <http://purl.org/ontology/bibo/>
+PREFIX opus: <http://lsdis.cs.uga.edu/projects/semdis/opus#>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX schema: <http://schema.org/>
+PREFIX dcat: <http://www.w3.org/ns/dcat#>
+
+HEADERS {
+    X-Permission "write:sources"
+    X-User "john-doe"
+}
+
+With Class wba:EntryPoint {
+    Expect Link wba:brochures
+}
+
+With Class wba:BrochureCollection {
+    Expect Operation schema:CreateAction {
+        Invoke {
+            Content-Type "application/ld+json"
+
+            ```
+            {
+            	"@type": "https://wikibus.org/ontology#Brochure",
+            	"http://purl.org/dc/terms/title": {
+            		"@value": "Jelczańskie Zakłady Samochodowe",
+            		"@type": "http://www.w3.org/2001/XMLSchema#string"
+            	},
+            	"http://www.w3.org/2000/01/rdf-schema#comment": {
+            		"@value": "Kserokopia",
+            		"@type": "http://www.w3.org/2001/XMLSchema#string"
+            	},
+            	"http://purl.org/ontology/bibo/pages": {
+            		"@value": "12",
+            		"@type": "http://www.w3.org/2001/XMLSchema#integer"
+            	},
+            	"http://lsdis.cs.uga.edu/projects/semdis/opus#year": {
+            		"@value": "2019",
+            		"@type": "http://www.w3.org/2001/XMLSchema#gYear"
+            	}
+            }
+            ```
+        } => {
+            Expect Status 201
+
+            Expect Property dcterms:title "Jelczańskie Zakłady Samochodowe"
+            Expect Property rdfs:comment "Kserokopia"
+            Expect Property bibo:pages 12
+            Expect Property opus:year "2019"
+            Expect Property dcterms:created
+
+            // Expect No Property dcterms:language
+
+            Expect Property schema:associatedMedia {
+                Expect Operation schema:TransferAction {
+                    Invoke {
+                        Content-Type "application/pdf"
+                        Content-Length "4652990"
+
+                        <<< "ecitaro.pdf"
+                    } => {
+                        Expect Status 200
+
+                        Expect Property schema:contentUrl
+                        Expect Property dcat:byteSize "4652990"
+                        Expect Property schema:contentSize "4.44 MB"
+                        Expect Property schema:name
+                    }
+                }
+            }
+        }
+    }
+}

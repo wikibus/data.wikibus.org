@@ -6,6 +6,8 @@
   "license": "MIT",
   "private": true,
   "scripts": {
+    "prepare": "husky install",
+    "lint": "eslint . --ext .ts --quiet --ignore-path .gitignore",
     "test:e2e": "docker-compose run --rm e2e-tests --"
   },
   "workspaces": [
@@ -14,6 +16,21 @@
   ],
   "dependencies": {
     "@changesets/cli": "^2.16.0",
-    "@types/sparql-http-client": "^2.2.6"
+    "@tpluscode/eslint-config": "^0.3.0",
+    "@types/sparql-http-client": "^2.2.6",
+    "@typescript-eslint/eslint-plugin": "^4.27.0",
+    "@typescript-eslint/parser": "^4.27.0",
+    "eslint-config-standard": "^16.0.3",
+    "eslint-import-resolver-typescript": "^2.4.0",
+    "eslint-plugin-import": "^2.23.4",
+    "eslint-plugin-node": "^11.1.0",
+    "husky": "^6.0.0",
+    "lint-staged": "^11.0.0",
+    "standard": "^16.0.3"
+  },
+  "lint-staged": {
+    "*.{js,ts}": [
+      "eslint --fix --quiet"
+    ]
   }
 }

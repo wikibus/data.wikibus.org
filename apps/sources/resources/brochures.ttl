@@ -7,6 +7,7 @@ prefix wbo: <https://wikibus.org/ontology#>
     a </api/BrochureCollection> ;
     hydra:manages
         [
-            rdf:type wbo:Brochure ;
+            hydra:property rdf:type ;
+            hydra:object wbo:Brochure ;
         ] ;
 .

@@ -9,16 +9,9 @@ prefix wbo: <https://wikibus.org/ontology#>
 
 <>
     a sh:NodeShape ;
-    sh:targetClass wbo:Brochure ;
+    sh:targetClass wbo:Book ;
     rdfs:label "Book details" ;
     sh:property
-        [
-            sh:name "title" ;
-            sh:minCount 1 ;
-            sh:maxCount 1 ;
-            sh:datatype xsd:string ;
-            sh:order 10 ;
-        ],
         [
             sh:path schema:isbn ;
             sh:maxCount 1 ;

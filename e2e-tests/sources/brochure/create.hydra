@@ -9,7 +9,7 @@ PREFIX schema: <http://schema.org/>
 PREFIX dcat: <http://www.w3.org/ns/dcat#>
 
 HEADERS {
-    X-Permission "write:sources"
+    X-Class "Admin"
     X-User "john-doe"
 }
 
@@ -25,6 +25,7 @@ With Class wba:BrochureCollection {
             ```
             {
             	"@type": "https://wikibus.org/ontology#Brochure",
+            	"@id": "",
             	"http://purl.org/dc/terms/title": {
             		"@value": "Jelczańskie Zakłady Samochodowe",
             		"@type": "http://www.w3.org/2001/XMLSchema#string"

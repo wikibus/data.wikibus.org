@@ -8,12 +8,22 @@
   "private": true,
   "scripts": {
     "bootstrap": "talos put --vocabs --resources --api https://sources.wikibus.lndo.site --endpoint http://db.wikibus.lndo.site/repositories/wikibus --user wikibus --password wikibus",
-    "start": "knossos serve http://store:10035/repositories/wikibus?infer=true --name wikibus --authModule ./sources/middleware/authenticate --codePath ./sources --user wikibus --password wikibus"
+    "start": "node -r ts-node/register node_modules/.bin/knossos serve http://store:10035/repositories/wikibus?infer=true --name wikibus --authModule ./middleware/authenticate-local --codePath ./lib --user wikibus --password wikibus"
   },
   "dependencies": {
-    "@hydrofoil/knossos": "^0.1.0"
+    "@hydrofoil/knossos": "^0.1.1",
+    "@tpluscode/rdf-ns-builders": "^1.0.0",
+    "@tpluscode/sparql-builder": "^0.3.13",
+    "clownface": "^1.2.0",
+    "rdf-ext": "^1.3.1",
+    "rdf-literal": "^1.2.0"
   },
   "devDependencies": {
-    "@hydrofoil/talos": "^0.1.0"
+    "@hydrofoil/talos": "^0.1.1",
+    "@types/debug": "^4.1.5",
+    "@types/rdf-ext": "^1",
+    "@types/clownface": "^1",
+    "ts-node": "^10.0.0",
+    "typescript": "^4.3.2"
   }
 }

@@ -32,6 +32,11 @@ prefix knossos: <https://hypermedia.app/knossos#>
                     hydra:variable "title" ;
                     hydra:property dcterms:title ;
                     hydra:required true ;
+                    knossos:transformVariable
+                        [
+                            a code:EcmaScript ;
+                            code:link <file:wbo/source#slugifyTitle> ;
+                        ] ;
                 ] ;
         ]
 .

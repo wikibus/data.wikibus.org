@@ -1,5 +1,36 @@
-@prefix hydra: <http://www.w3.org/ns/hydra/core#> .
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX schema: <http://schema.org/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+prefix hydra: <http://www.w3.org/ns/hydra/core#>
+prefix code: <https://code.described.at/>
+prefix knossos: <https://hypermedia.app/knossos#>
+prefix wbo: <https://wikibus.org/ontology#>
 
 <> a hydra:ApiDocumentation ;
-	hydra:entrypoint <../> .
+  hydra:entrypoint <../> ;
+  knossos:configuration </api/config> .
 
+<uploadPdf>
+  a hydra:Link ;
+  rdfs:subPropertyOf schema:associatedMedia ;
+  hydra:supportedOperation
+    [
+      a schema:TransferAction ;
+      hydra:method "POST" ;
+      hydra:expects schema:MediaObject ;
+      hydra:returns owl:Nothing ;
+      hydra:title "Upload PDF" ;
+      code:implementedBy
+        [
+          a code:EcmaScript ;
+          code:link <file:wbo/source/uploadPdf#default> ;
+        ] ;
+    ] ;
+.
+
+wbo:Source a hydra:Class ;
+  hydra:apiDocumentation <> ;
+  hydra:supportedProperty
+    [
+      hydra:property <uploadPdf> ;
+    ] .

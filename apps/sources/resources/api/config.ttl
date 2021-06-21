@@ -1,0 +1,37 @@
+PREFIX code: <https://code.described.at/>
+PREFIX schema: <http://schema.org/>
+prefix knossos: <https://hypermedia.app/knossos#>
+
+<>
+  knossos:environment <#prod> , <#dev>
+.
+
+<#dev>
+  schema:identifier "DEV" ;
+  knossos:service
+    [
+      schema:name "FileService" ;
+      code:implementedBy
+        [
+          a code:EcmaScript ;
+          code:link <node:@wikibus/dev-services#FileService> ;
+        ] ;
+    ]
+.
+
+<#prod>
+  schema:identifier "PROD" ;
+  knossos:service
+    [
+      schema:name "FileService" ;
+      code:implementedBy
+        [
+          a code:EcmaScript ;
+          code:link <node:@wikibus/azure#AzureBlobService> ;
+          code:arguments
+            (
+              "foo"
+            ) ;
+        ] ;
+    ]
+.

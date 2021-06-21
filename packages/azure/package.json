@@ -1,0 +1,10 @@
+{
+  "name": "@wikibus/azure",
+  "version": "0.0.0",
+  "private": true,
+  "dependencies": {
+    "@azure/storage-blob": "^12.6.0",
+    "@wikibus/core": "0.0.0",
+    "rdf-ext": "^1.3.1"
+  }
+}

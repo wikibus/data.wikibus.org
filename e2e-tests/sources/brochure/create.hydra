@@ -63,7 +63,7 @@ With Class wba:BrochureCollection {
 
                         <<< "ecitaro.pdf"
                     } => {
-                        Expect Status 200
+                        Expect Status 201
 
                         Expect Property schema:contentUrl
                         Expect Property dcat:byteSize "4652990"

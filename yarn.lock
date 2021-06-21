@@ -880,9 +880,9 @@
     "@zazuko/rdf-vocabularies" "*"
 
 "@tpluscode/rdfine@^0.5.15", "@tpluscode/rdfine@^0.5.27":
-  version "0.5.27"
-  resolved "https://registry.yarnpkg.com/@tpluscode/rdfine/-/rdfine-0.5.27.tgz#27f9a1630d905bdecb65f79f608424cdb0d87a92"
-  integrity sha512-Ah/xM1QDMlGtfygtWOYj5wyovfE3Cn8f5LzHtNQz+qMu69XilZMGPnAOY6c/M1dNHGocnq8QPbXwfcnUcxu97A==
+  version "0.5.28"
+  resolved "https://registry.yarnpkg.com/@tpluscode/rdfine/-/rdfine-0.5.28.tgz#13389f814ac99a5417b7b42ef7d70371afc5b33f"
+  integrity sha512-B64Az3JWSkX3jYQjL7kESYm8qvDGh36HRBF8drDo73zI2Lo3D8qfu+pG5IgBCLbT65gh3yWuC+kItu6Uj9HyjA==
   dependencies:
     "@rdf-esm/data-model" "^0.5.3"
     "@rdf-esm/namespace" "^0.5.2"

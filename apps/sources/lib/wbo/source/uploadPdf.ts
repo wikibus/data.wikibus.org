@@ -51,7 +51,7 @@ export default asyncMiddleware(combineMiddlewares(pdfUploaded.any(), async (req,
     .addOut(schema.contentSize, `${Math.round(file.byteSize / 1024 / 1024 * 100) / 100} MB`)
 
   res.event({
-    types: [wba(req)('events/SourcePdfUploaded')],
+    types: [wba('events/SourcePdfUploaded')],
     summary: `Uploaded file ${file.name} to source ${source.value}`,
     object: fileResource,
     origin: source,

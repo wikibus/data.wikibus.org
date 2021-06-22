@@ -5,12 +5,13 @@ prefix hydra: <http://www.w3.org/ns/hydra/core#>
 prefix code: <https://code.described.at/>
 prefix knossos: <https://hypermedia.app/knossos#>
 prefix wbo: <https://wikibus.org/ontology#>
+prefix wba: <https://wikibus.org/api#>
 
 <> a hydra:ApiDocumentation ;
   hydra:entrypoint <../> ;
   knossos:configuration </api/config> .
 
-<uploadPdf>
+wba:uploadPdf
   a hydra:Link ;
   rdfs:subPropertyOf schema:associatedMedia ;
   hydra:supportedOperation
@@ -32,5 +33,25 @@ wbo:Source a hydra:Class ;
   hydra:apiDocumentation <> ;
   hydra:supportedProperty
     [
-      hydra:property <uploadPdf> ;
+      hydra:property wba:uploadPdf ;
+    ],
+    [
+      hydra:property wba:images ;
     ] .
+
+wba:images
+  a hydra:Link ;
+  hydra:supportedOperation
+    [
+      a schema:TransferAction ;
+      hydra:method "POST" ;
+      hydra:expects wba:ImageUpload ;
+      hydra:returns owl:Nothing ;
+      hydra:title "Upload image" ;
+      code:implementedBy
+        [
+          a code:EcmaScript ;
+          code:link <file:wba/images#uploadImage> ;
+        ] ;
+    ] ;
+.

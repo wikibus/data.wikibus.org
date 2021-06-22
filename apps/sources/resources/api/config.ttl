@@ -3,7 +3,29 @@ PREFIX schema: <http://schema.org/>
 prefix knossos: <https://hypermedia.app/knossos#>
 
 <>
-  knossos:environment <#prod> , <#dev>
+  knossos:environment <#prod> , <#dev> ;
+  knossos:service
+    [
+      schema:name "IMAGES" ;
+      code:implementedBy
+        [
+          a code:EcmaScript ;
+          code:link <node:@wikibus/cloudinary#default> ;
+          code:arguments
+            [
+              code:name "defaultTransformation" ;
+              code:value "default_downsize"
+            ],
+            [
+              code:name "thumbTransformation" ;
+              code:value "media_lib_thumb"
+            ],
+            [
+              code:name "brochuresFolder" ;
+              code:value "wikibus test/brochures"
+            ] ;
+        ] ;
+    ] ;
 .
 
 <#dev>

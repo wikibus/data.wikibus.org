@@ -1,6 +1,7 @@
 name: wikibus
 env_file:
   - .local.env
+  - .env
 services:
   sources:
     type: node:custom

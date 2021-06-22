@@ -680,6 +680,15 @@
     "@tpluscode/rdf-ns-builders" "^1.0.0"
     "@tpluscode/rdfine" "^0.5.27"
 
+"@rdfine/schema@^0.6.4":
+  version "0.6.4"
+  resolved "https://registry.yarnpkg.com/@rdfine/schema/-/schema-0.6.4.tgz#8d5295188bf5d0e8b4c2432e0ba6eaa9a9f6440f"
+  integrity sha512-HPHE4DS/FhWEE0Kvb1EOFkn8u1CAj6syZzx1XCgZlkmaV7TLcsaF7jUNhb8GU/une9WK2sn04tVJNWYS3PcLvQ==
+  dependencies:
+    "@rdf-esm/data-model" "^0.5.3"
+    "@tpluscode/rdf-ns-builders" "^1.0.0"
+    "@tpluscode/rdfine" "^0.5.27"
+
 "@rdfine/shacl@^0.8.1":
   version "0.8.1"
   resolved "https://registry.yarnpkg.com/@rdfine/shacl/-/shacl-0.8.1.tgz#a8bd0ae20362daa7cb37a7bf3524f651ba9ab876"
@@ -1689,6 +1698,21 @@ clone@^1.0.2:
   resolved "https://registry.yarnpkg.com/clone/-/clone-1.0.4.tgz#da309cc263df15994c688ca902179ca3c7cd7c7e"
   integrity sha1-2jCcwmPfFZlMaIypAheco8fNfH4=
 
+cloudinary-core@^2.10.2:
+  version "2.11.4"
+  resolved "https://registry.yarnpkg.com/cloudinary-core/-/cloudinary-core-2.11.4.tgz#1d191935bcdcd412d499a91b928a94b266fee49d"
+  integrity sha512-F1BZczD6f5mB73D0c8gl/iuacVQQO+UhckNZxeeS9ZIVeIHbsfqwWiAZMQmIvEb7Wti/9MLU0xVwaWOak2THHA==
+
+cloudinary@^1.22.0:
+  version "1.26.0"
+  resolved "https://registry.yarnpkg.com/cloudinary/-/cloudinary-1.26.0.tgz#c19ac03ea2b23b4c66e15f5b2614507f497d5c87"
+  integrity sha512-IMXXthfGKr8WOK6Ja2ixjoMLwEZwYZpomp/WTgsyYvhVxNw1RlszFBevaY5pzwTMRVlUL4/LfgQpMh/GxDe8uw==
+  dependencies:
+    cloudinary-core "^2.10.2"
+    core-js "3.6.5"
+    lodash "^4.17.11"
+    q "^1.5.1"
+
 clownface-shacl-path@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/clownface-shacl-path/-/clownface-shacl-path-1.0.2.tgz#912ad84e7f2b6a8f14d29e86970bfa2688c87dff"
@@ -1807,6 +1831,11 @@ cookie@0.4.0:
   version "0.4.0"
   resolved "https://registry.yarnpkg.com/cookie/-/cookie-0.4.0.tgz#beb437e7022b3b6d49019d088665303ebe9c14ba"
   integrity sha512-+Hp8fLp57wnUSt0tY0tHEXh4voZRDnoIrZPqlo3DPiI4y9lwg/jqx+1Om94/W6ZaPDOUbnjOt/99w66zk+l1Xg==
+
+core-js@3.6.5:
+  version "3.6.5"
+  resolved "https://registry.yarnpkg.com/core-js/-/core-js-3.6.5.tgz#7395dc273af37fb2e50e9bd3d9fe841285231d1a"
+  integrity sha512-vZVEEwZoIsI+vPEuoF9Iqf5H7/M3eeQqWlQnYa8FSKKePuYTf5MWnxb5SDAzCa60b3JBRS5g9b+Dq7b1y/RCrA==
 
 core-util-is@1.0.2, core-util-is@~1.0.0:
   version "1.0.2"
@@ -3459,7 +3488,7 @@ lodash.startcase@^4.4.0:
   resolved "https://registry.yarnpkg.com/lodash.startcase/-/lodash.startcase-4.4.0.tgz#9436e34ed26093ed7ffae1936144350915d9add8"
   integrity sha1-lDbjTtJgk+1/+uGTYUQ1CRXZrdg=
 
-lodash@^4.17.14, lodash@^4.17.15, lodash@^4.17.19, lodash@^4.17.21:
+lodash@^4.17.11, lodash@^4.17.14, lodash@^4.17.15, lodash@^4.17.19, lodash@^4.17.21:
   version "4.17.21"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.21.tgz#679591c564c3bffaae8454cf0b3df370c3d6911c"
   integrity sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==
@@ -4169,6 +4198,11 @@ punycode@^2.1.0, punycode@^2.1.1:
   version "2.1.1"
   resolved "https://registry.yarnpkg.com/punycode/-/punycode-2.1.1.tgz#b58b010ac40c22c5657616c8d2c2c02c7bf479ec"
   integrity sha512-XRsRjdf+j5ml+y/6GKHPZbrF/8p2Yga0JPtdqTIY2Xe5ohJPD9saDJJLPvp9+NSBprVvevdXZybnj2cv8OEd0A==
+
+q@^1.5.1:
+  version "1.5.1"
+  resolved "https://registry.yarnpkg.com/q/-/q-1.5.1.tgz#7e32f75b41381291d04611f1bf14109ac00651d7"
+  integrity sha1-fjL3W0E4EpHQRhHxvxQQmsAGUdc=
 
 qs@6.7.0:
   version "6.7.0"

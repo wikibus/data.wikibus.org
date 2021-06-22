@@ -1,0 +1,11 @@
+{
+  "name": "@wikibus/cloudinary",
+  "private": true,
+  "version": "0.0.0",
+  "main": "index.ts",
+  "dependencies": {
+    "@wikibus/core": "0.0.0",
+    "cloudinary": "^1.26.0",
+    "buffer-to-stream": "^1.0.0"
+  }
+}

@@ -1,6 +1,12 @@
 import { NamedNode } from 'rdf-js'
-import type { Request } from 'express'
 import namespace from '@rdfjs/namespace'
+
+interface TYPES {
+  /**
+   * Collection of images
+   */
+  ImageCollection: NamedNode
+}
 
 interface EVENTS {
   /**
@@ -14,6 +20,16 @@ interface PROPERTIES {
    * Link property to the file resource which allows upload
    */
   uploadPdf: NamedNode
+
+  /**
+   * Links brochure to collection of its images
+   */
+  images: NamedNode
+
+  /**
+   * Links an image to its source
+   */
+  imageOf: NamedNode
 }
 
-export const wba = (req: Request) => namespace<keyof EVENTS | keyof PROPERTIES>(req.rdf.namedNode('/').value)
+export const wba = namespace<keyof EVENTS | keyof PROPERTIES | keyof TYPES>('https://wikibus.org/api#')

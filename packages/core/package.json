@@ -4,6 +4,7 @@
   "version": "0.0.0",
   "dependencies": {
     "@hydrofoil/vocabularies": "^0.1.7",
+    "@rdfjs/namespace": "^1.1.0",
     "@tpluscode/rdf-ns-builders": "^1.0.0",
     "clownface": "^1.2.0",
     "rdf-loader-code": "^0.3.2"

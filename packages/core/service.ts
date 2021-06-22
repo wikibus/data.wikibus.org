@@ -16,11 +16,14 @@ export async function load<T>(req: Request, service: string): Promise<T> {
     throw new Error('Missing configuration')
   }
 
-  const configuration = (await req.knossos.store.load(id))
-    .out(knossos.environment)
-    .has(schema.identifier, process.env.ENV || 'PROD')
+  const baseConfiguration = (await req.knossos.store.load(id))
+  const envConfiguration = baseConfiguration.out(knossos.environment).has(schema.identifier, process.env.ENV || 'PROD')
 
-  const serviceNode = configuration.out(knossos.service).has(schema.name, service).out(code.implementedBy)
+  let serviceNode = envConfiguration.out(knossos.service).has(schema.name, service).out(code.implementedBy)
+
+  if (!isSingleNode(serviceNode)) {
+    serviceNode = baseConfiguration.out(knossos.service).has(schema.name, service).out(code.implementedBy)
+  }
 
   if (!isSingleNode(serviceNode)) {
     throw new Error(`Failed to load ${service}`)

@@ -1,5 +1,5 @@
 PREFIX wbo: <https://wikibus.org/ontology#>
-PREFIX wba: <https://sources.wikibus.lndo.site/api/>
+PREFIX wba: <https://wikibus.org/api#>
 PREFIX hydra: <http://www.w3.org/ns/hydra/core#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX bibo: <http://purl.org/ontology/bibo/>
@@ -71,6 +71,23 @@ With Class wba:BrochureCollection {
                         Expect Property schema:name
                     }
                 }
+            }
+
+            Expect Property wba:images {
+                Expect Operation schema:TransferAction {
+                    Invoke {
+                        Content-Type "image/jpeg"
+                        Content-Length "149196"
+
+                        <<< "jelcz.png"
+                    } => {
+                        Expect Status 204
+                    }
+                }
+            }
+
+            Expect Link wba:images {
+                Expect Property hydra:totalItems 1
             }
         }
     }

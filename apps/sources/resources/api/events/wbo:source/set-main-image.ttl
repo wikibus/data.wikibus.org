@@ -1,0 +1,27 @@
+PREFIX schema: <http://schema.org/>
+@prefix code: <https://code.described.at/> .
+@prefix as: <https://www.w3.org/ns/activitystreams#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix events: <https://hypermedia.app/events#> .
+prefix wbo: <https://wikibus.org/ontology#>
+prefix wba: <https://wikibus.org/api#>
+
+<>
+  a events:EventHandler ;
+  events:immediate true ;
+  events:eventSpec
+    [
+      rdf:predicate rdf:type ;
+      rdf:object as:Create ;
+    ] ;
+  events:objectSpec
+    [
+      rdf:predicate rdf:type ;
+      rdf:object schema:ImageObject ;
+    ] ;
+  code:implementedBy
+    [
+      rdf:type code:EcmaScript ;
+      code:link <file:wbo/source#setMainImage> ;
+    ] .
+

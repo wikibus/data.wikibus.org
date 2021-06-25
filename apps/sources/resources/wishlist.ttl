@@ -1,0 +1,9 @@
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX schema: <http://schema.org/>
+prefix wba: <https://wikibus.org/api#>
+
+<>
+  a schema:WebPageElement ;
+  rdfs:label "Build your own wishlist" ;
+  schema:hasPart <https://cms.wikibus.org/wishlist/about> ;
+.

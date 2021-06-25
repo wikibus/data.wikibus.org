@@ -7,6 +7,6 @@ prefix wbo: <https://wikibus.org/ontology#>
 
 <> a acl:Authorization ;
    acl:agentClass foaf:Agent ;
-   acl:accessTo </>, </brochures> ;
+   acl:accessTo </>, </brochures>, </wishlist> ;
    acl:accessToClass schema:ImageObject ;
    acl:mode acl:Read .

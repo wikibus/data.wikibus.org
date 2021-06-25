@@ -1,7 +1,9 @@
 prefix hydra: <http://www.w3.org/ns/hydra/core#>
+prefix wba: <https://wikibus.org/api#>
 
 <>
-    a hydra:Resource, </api/EntryPoint> ;
-    <api/brochures> <brochures> ;
+  a hydra:Resource, wba:EntryPoint ;
+  wba:brochures <brochures> ;
+  wba:wishlist <wishlist> ;
 .
 

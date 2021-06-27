@@ -3,6 +3,7 @@ PREFIX schema: <http://schema.org/>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 prefix events: <https://hypermedia.app/events#>
 prefix code: <https://code.described.at/>
+prefix events: <https://wikibus.org/api#events/>
 
 <>
   a events:EventHandler ;
@@ -14,7 +15,7 @@ prefix code: <https://code.described.at/>
   events:eventSpec
     [
       rdf:predicate rdf:type ;
-      rdf:object </events/SourcePdfUploaded> ;
+      rdf:object events:SourcePdfUploaded ;
     ] ;
   code:implementedBy
     [

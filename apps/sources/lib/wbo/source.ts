@@ -6,7 +6,7 @@ import slugify from 'slugify'
 import { nanoid } from 'nanoid'
 import type { TransformVariable } from '@hydrofoil/knossos/collection'
 import { schema, acl, hydra, rdf } from '@tpluscode/rdf-ns-builders/strict'
-import { wba } from '../api'
+import { wba } from '@wikibus/vocabularies/builders/strict'
 
 export const initializeFileResource: Handler = async ({ event, req }) => {
   if (!event.object) {

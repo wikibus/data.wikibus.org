@@ -7,7 +7,7 @@ import { dcat, rdf, schema } from '@tpluscode/rdf-ns-builders/strict'
 import { FileStorage } from '@wikibus/core'
 import { describeResource } from '@hydrofoil/labyrinth/lib/query/describeResource'
 import { CREATED } from 'http-status'
-import { wba } from '../../api'
+import { wb_events as wbe } from '@wikibus/vocabularies/builders/strict'
 
 const pdfUploaded = multer({
   fileFilter(req, file, callback): void {
@@ -51,7 +51,7 @@ export default asyncMiddleware(combineMiddlewares(pdfUploaded.any(), async (req,
     .addOut(schema.contentSize, `${Math.round(file.byteSize / 1024 / 1024 * 100) / 100} MB`)
 
   res.event({
-    types: [wba('events/SourcePdfUploaded')],
+    types: [wbe.SourcePdfUploaded],
     summary: `Uploaded file ${file.name} to source ${source.value}`,
     object: fileResource,
     origin: source,

@@ -12,7 +12,7 @@ import { hydra, schema } from '@tpluscode/rdf-ns-builders/strict'
 import { fromPointer } from '@rdfine/schema/lib/ImageObject'
 import RdfResourceImpl from '@tpluscode/rdfine'
 import { ImageObjectBundle } from '@rdfine/schema/bundles'
-import { wba } from '../../api'
+import { wba } from '@wikibus/vocabularies/builders/strict'
 
 RdfResourceImpl.factory.addMixin(...ImageObjectBundle)
 

@@ -8,7 +8,7 @@
   "private": true,
   "scripts": {
     "init": "knossos init",
-    "bootstrap": "talos put --vocabs --resources --api https://sources.wikibus.lndo.site --endpoint http://db.wikibus.lndo.site/repositories/wikibus --user wikibus --password wikibus",
+    "bootstrap": "talos put --vocabs --resources --api https://sources.wikibus.lndo.site --endpoint http://db.wikibus.lndo.site/repositories/wikibus --user wikibus --password wikibus --extraVocabs @wikibus/vocabularies",
     "start": "node -r ts-node/register node_modules/.bin/knossos serve http://store:10035/repositories/wikibus?infer=true --name wikibus --authModule ./middleware/authenticate-local --codePath ./lib --user wikibus --password wikibus"
   },
   "dependencies": {
@@ -23,6 +23,7 @@
     "@wikibus/azure": "0.0.0",
     "@wikibus/core": "0.0.0",
     "@wikibus/cloudinary": "0.0.0",
+    "@wikibus/vocabularies": "^0.2.2",
     "buffer-to-stream": "^1.0.0",
     "clownface": "^1.2.0",
     "http-errors": "^1.8.0",
@@ -36,7 +37,7 @@
     "slugify": "^1.5.3"
   },
   "devDependencies": {
-    "@hydrofoil/talos": "^0.2.0",
+    "@hydrofoil/talos": "^0.2.1",
     "@wikibus/dev-services": "0.0.0",
     "@types/buffer-to-stream": "^1.0.0",
     "@types/debug": "^4.1.5",

@@ -1,0 +1,11 @@
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix hydra: <http://www.w3.org/ns/hydra/core#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix acl: <http://www.w3.org/ns/auth/acl#> .
+@prefix knossos: <https://hypermedia.app/knossos#> .
+prefix wba: <https://wikibus.org/api#>
+
+<#authenticated-write> a acl:Authorization ;
+  acl:agentClass acl:AuthenticatedAgent;
+  acl:accessToClass wba:Wishlist ;
+  acl:mode acl:Create .

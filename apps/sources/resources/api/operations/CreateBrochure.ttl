@@ -1,0 +1,21 @@
+PREFIX hydra: <http://www.w3.org/ns/hydra/core#>
+PREFIX acl: <http://www.w3.org/ns/auth/acl#>
+PREFIX schema: <http://schema.org/>
+prefix auth: <https://hypermedia.app/auth#>
+prefix code: <https://code.described.at/>
+prefix wba: <https://wikibus.org/api#>
+prefix knossos: <https://hypermedia.app/knossos#>
+
+<>
+  a schema:CreateAction ;
+  hydra:apiDocumentation </api> ;
+  knossos:supportedByClass wba:BrochureCollection ;
+  auth:access acl:Create ;
+  hydra:method "POST" ;
+  hydra:title "Create brochure" ;
+  code:implementedBy
+    [
+      a code:EcmaScript ;
+      code:link <node:@hydrofoil/knossos/collection#CreateMember> ;
+    ] ;
+.

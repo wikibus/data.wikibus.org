@@ -1,3 +1,4 @@
+PREFIX dcterms: <http://purl.org/dc/terms/>
 PREFIX owl: <http://www.w3.org/2002/07/owl#>
 PREFIX schema: <http://schema.org/>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
@@ -12,8 +13,6 @@ prefix wba: <https://wikibus.org/api#>
   knossos:configuration </api/config> .
 
 wba:uploadPdf
-  a hydra:Link ;
-  rdfs:subPropertyOf schema:associatedMedia ;
   hydra:supportedOperation
     [
       a schema:TransferAction ;
@@ -37,10 +36,24 @@ wbo:Source a hydra:Class ;
     ],
     [
       hydra:property wba:images ;
+    ] ;
+.
+
+wbo:Brochure
+  hydra:supportedProperty
+    [
+      hydra:property wba:wishlist ;
     ] .
 
+wba:ImageUpload
+  hydra:supportedProperty
+    [
+      hydra:property schema:image ;
+      hydra:title "files" ;
+    ] ;
+.
+
 wba:images
-  a hydra:Link ;
   hydra:supportedOperation
     [
       a schema:TransferAction ;
@@ -55,3 +68,21 @@ wba:images
         ] ;
     ] ;
 .
+
+wba:BrochureCollection
+  knossos:memberTemplate
+    [
+      a hydra:IriTemplate ;
+      hydra:template "/brochure/{title}" ;
+      hydra:mapping
+        [
+          hydra:variable "title" ;
+          hydra:property dcterms:title ;
+          hydra:required true ;
+          knossos:transformVariable
+            [
+              a code:EcmaScript ;
+              code:link <file:wbo/source#slugifyTitle> ;
+            ] ;
+        ] ;
+    ] .

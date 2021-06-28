@@ -79,7 +79,7 @@ With Class wba:BrochureCollection {
                         Content-Type "image/jpeg"
                         Content-Length "149196"
 
-                        <<< "jelcz.png"
+                        <<< "jelcz.jpg"
                     } => {
                         Expect Status 204
                     }
@@ -89,6 +89,8 @@ With Class wba:BrochureCollection {
             Expect Link wba:images {
                 Expect Property hydra:totalItems 1
             }
+
+            Expect Link wba:wishlist
         }
     }
 }

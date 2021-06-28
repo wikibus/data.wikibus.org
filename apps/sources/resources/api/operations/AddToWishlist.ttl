@@ -1,0 +1,20 @@
+PREFIX acl: <http://www.w3.org/ns/auth/acl#>
+PREFIX hydra: <http://www.w3.org/ns/hydra/core#>
+prefix wba: <https://wikibus.org/api#>
+prefix code: <https://code.described.at/>
+prefix knossos: <https://hypermedia.app/knossos#>
+prefix auth: <https://hypermedia.app/auth#>
+
+<>
+  knossos:supportedByProperty wba:wishlist ;
+  hydra:apiDocumentation </api> ;
+  hydra:method "POST" ;
+  hydra:title "Add to wishlist" ;
+  auth:access acl:Create ;
+  hydra:description "Brochure will be scanned to PDF with highest priority" ;
+  code:implementedBy
+    [
+      a code:EcmaScript ;
+      code:link <file:wbo/wishlist#addToWishlist>
+    ] ;
+.

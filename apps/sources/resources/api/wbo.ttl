@@ -1,6 +1,0 @@
-PREFIX hydra: <http://www.w3.org/ns/hydra/core#>
-PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-prefix wbo: <https://wikibus.org/ontology#>
-
-wbo:Brochure rdfs:subClassOf wbo:Source .
-wbo:Source rdfs:subClassOf hydra:Resource .

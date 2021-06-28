@@ -3,6 +3,7 @@ import clownface from 'clownface'
 import $rdf from 'rdf-ext'
 import { wba } from '@wikibus/vocabularies/builders'
 import { hydra, rdf } from '@tpluscode/rdf-ns-builders/strict'
+import { save } from '@hydrofoil/knossos/lib/resource'
 
 export const initWishlist: Handler = ({ event: { object: brochure }, req }) => {
   const wishlist = clownface({ dataset: $rdf.dataset() })
@@ -14,5 +15,5 @@ export const initWishlist: Handler = ({ event: { object: brochure }, req }) => {
       ma.addOut(hydra.object, brochure!.id)
     })
 
-  return req.knossos.store.save(wishlist)
+  return save({ resource: wishlist, req })
 }

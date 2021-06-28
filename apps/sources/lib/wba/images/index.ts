@@ -15,6 +15,7 @@ import { fromPointer } from '@rdfine/schema/lib/ImageObject'
 import RdfResourceImpl from '@tpluscode/rdfine'
 import { ImageObjectBundle } from '@rdfine/schema/bundles'
 import { wba } from '@wikibus/vocabularies/builders/strict'
+import { save } from '@hydrofoil/knossos/lib/resource'
 
 RdfResourceImpl.factory.addMixin(...ImageObjectBundle)
 
@@ -34,7 +35,7 @@ function processImage(req: express.Request, res: express.Response, imageService:
     })
 
     try {
-      await req.knossos.store.save(image)
+      await save({ resource: image, req })
 
       res.event(created(image))
     } catch (e) {

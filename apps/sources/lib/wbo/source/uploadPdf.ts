@@ -8,6 +8,7 @@ import { FileStorage } from '@wikibus/core'
 import { describeResource } from '@hydrofoil/labyrinth/lib/query/describeResource'
 import { CREATED } from 'http-status'
 import { wb_events as wbe } from '@wikibus/vocabularies/builders/strict'
+import { save } from '@hydrofoil/knossos/lib/resource'
 
 const pdfUploaded = multer({
   fileFilter(req, file, callback): void {
@@ -57,6 +58,6 @@ export default asyncMiddleware(combineMiddlewares(pdfUploaded.any(), async (req,
     origin: source,
   })
 
-  await req.knossos.store.save(fileResource)
+  await save({ resource: fileResource, req })
   return res.status(CREATED).quadStream(await describeResource(fileResource.term, req.labyrinth.sparql))
 }))

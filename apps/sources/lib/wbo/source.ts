@@ -7,6 +7,7 @@ import { nanoid } from 'nanoid'
 import type { TransformVariable } from '@hydrofoil/knossos/collection'
 import { schema, acl, hydra, rdf } from '@tpluscode/rdf-ns-builders/strict'
 import { wba } from '@wikibus/vocabularies/builders/strict'
+import { save } from '@hydrofoil/knossos/lib/resource'
 
 export const initializeFileResource: Handler = async ({ event, req }) => {
   if (!event.object) {
@@ -17,7 +18,7 @@ export const initializeFileResource: Handler = async ({ event, req }) => {
     .node(req.rdf.namedNode(`${event.object.id.value}/file`))
     .addOut(acl.owner, req.agent!)
 
-  await req.knossos.store.save(fileResource)
+  await save({ resource: fileResource, req })
   await INSERT.DATA`GRAPH ${event.object.id} {
       ${event.object.id} ${wba.uploadPdf} ${fileResource.term}
   }`.execute(req.labyrinth.sparql.query)
@@ -41,7 +42,7 @@ export const initializeImagesCollection: Handler = async ({ event: { object: sou
     })
     .addOut(acl.owner, req.agent!)
 
-  await req.knossos.store.save(imagesCollection)
+  await save({ resource: imagesCollection, req })
   await INSERT.DATA`GRAPH ${source.id} {
     ${source.id} ${wba.images} ${imagesCollection.term}
   }`.execute(req.labyrinth.sparql.query)

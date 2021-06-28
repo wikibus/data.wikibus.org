@@ -1,5 +1,7 @@
+import { Readable } from 'stream'
 import { NO_CONTENT } from 'http-status'
 import error from 'http-errors'
+import type * as express from 'express-serve-static-core'
 import asyncMiddleware, { combineMiddlewares } from 'middleware-async'
 import multer from 'multer'
 import { load } from '@wikibus/core/service'
@@ -16,16 +18,9 @@ import { wba } from '@wikibus/vocabularies/builders/strict'
 
 RdfResourceImpl.factory.addMixin(...ImageObjectBundle)
 
-export const uploadImage = asyncMiddleware(combineMiddlewares(multer().any(), async (req, res, next) => {
-  const { files } = req
-  if (!Array.isArray(files)) {
-    return next(new error.BadRequest('Unexpected file upload'))
-  }
-
-  const imageService = await load<ImageStorage>(req, 'IMAGES')
-
-  const imagesToSave = files.map(async file => {
-    const uploadedImage = await imageService.uploadBrochureImage(file.buffer)
+function processImage(req: express.Request, res: express.Response, imageService: ImageStorage) {
+  return async (file: Readable | Buffer) => {
+    const uploadedImage = await imageService.uploadBrochureImage(file)
 
     const image = clownface({ dataset: $rdf.dataset() }).namedNode(req.rdf.namedNode(`/image/${slugify(uploadedImage.id)}`))
     fromPointer(image, {
@@ -38,8 +33,6 @@ export const uploadImage = asyncMiddleware(combineMiddlewares(multer().any(), as
       [wba.imageOf.value]: req.hydra.resource.term,
     })
 
-    req.knossos.log(uploadedImage.thumbnailUrl)
-
     try {
       await req.knossos.store.save(image)
 
@@ -47,10 +40,47 @@ export const uploadImage = asyncMiddleware(combineMiddlewares(multer().any(), as
     } catch (e) {
       req.knossos.log('Failed to upload image: "%s"', e.message)
       await imageService.deleteImage(uploadedImage.id)
+      return false
     }
-  })
+
+    return true
+  }
+}
+
+const handleSingleImage = asyncMiddleware(async (req: express.Request, res, next) => {
+  const saved = await processImage(req, res, res.locals.imageService)(req)
+
+  if (saved) {
+    return res.sendStatus(NO_CONTENT)
+  }
+
+  return next()
+})
+
+const handleMultiPartUpload = asyncMiddleware(async (req: express.Request, res, next) => {
+  const { files } = req
+  if (!Array.isArray(files)) {
+    return next()
+  }
+
+  const saveImage = processImage(req, res, res.locals.imageService)
+  const imagesToSave = files.map(async file => saveImage(file.buffer))
 
   await Promise.allSettled(imagesToSave)
 
   res.sendStatus(NO_CONTENT)
-}))
+})
+
+const loadImageService = asyncMiddleware(async (req: express.Request, res, next) => {
+  res.locals = {
+    imageService: await load<ImageStorage>(req, 'IMAGES'),
+  }
+  next()
+})
+
+export const uploadImage = combineMiddlewares(
+  multer().any(),
+  loadImageService,
+  handleMultiPartUpload,
+  handleSingleImage,
+  (req, res, next) => next(new error.BadRequest('Unexpected file upload')))

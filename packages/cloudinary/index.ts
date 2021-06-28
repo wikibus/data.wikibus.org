@@ -1,4 +1,5 @@
 import { promisify } from 'util'
+import { Readable } from 'stream'
 import toStream from 'buffer-to-stream'
 import type { UploadResponseCallback } from 'cloudinary'
 import cloudinary = require('cloudinary')
@@ -27,20 +28,24 @@ export default class CloudinaryService extends ImageStorage {
     ]
   }
 
-  private uploadBuffer(buffer: Buffer, folder: string, cb: UploadResponseCallback) {
+  private uploadBuffer(stream: Readable | Buffer, folder: string, cb: UploadResponseCallback) {
     const uploadStream = cloudinary.v2.uploader.upload_stream({
       folder,
       eager: this.eagerTransformations,
     }, cb)
 
-    toStream(buffer).pipe(uploadStream)
+    if ('readable' in stream) {
+      stream.pipe(uploadStream)
+    } else {
+      toStream(stream).pipe(uploadStream)
+    }
   }
 
   deleteImage(publicId: string): Promise<void> {
     return cloudinary.v2.api.delete_resources([publicId])
   }
 
-  async upload(image: Buffer, folder: string): Promise<UploadedImage> {
+  async upload(image: Readable | Buffer, folder: string): Promise<UploadedImage> {
     const response = await promisify(this.uploadBuffer.bind(this))(image, folder)
     const createdImage = await cloudinary.v2.api.resource(response!.public_id)
 

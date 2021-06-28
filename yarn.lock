@@ -506,9 +506,9 @@
     sparql-http-client "^2.2.3"
 
 "@hydrofoil/vocabularies@^0.1.0", "@hydrofoil/vocabularies@^0.1.5", "@hydrofoil/vocabularies@^0.1.6", "@hydrofoil/vocabularies@^0.1.7":
-  version "0.1.7"
-  resolved "https://registry.yarnpkg.com/@hydrofoil/vocabularies/-/vocabularies-0.1.7.tgz#e213dee57769e2d44b2a9b691b382045801c9d87"
-  integrity sha512-gyEiausfmHmW3xmWfMsQPTp3subh7NPUlwLxpBn6BHDm0RECJf+t9Fv/Vl3MrsUOiP6wHRmmHKU5un6SjSCPAw==
+  version "0.1.8"
+  resolved "https://registry.yarnpkg.com/@hydrofoil/vocabularies/-/vocabularies-0.1.8.tgz#1dd24c188c03a313393d2d4b1b64be3d7e4ea938"
+  integrity sha512-F3txxjtPrW7no5bDjUfdinXE/wns7VbKtudhgQdcvFOEqMZhSxySuJyoVkFwjx62znzXoJ9cDovQSyiS8VJRAQ==
   dependencies:
     "@rdf-esm/namespace" "^0.5.3"
     "@rdfjs/parser-n3" "^1.1.4"

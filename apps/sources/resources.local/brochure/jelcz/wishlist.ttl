@@ -1,0 +1,12 @@
+PREFIX hydra: <http://www.w3.org/ns/hydra/core#>
+prefix wba: <https://wikibus.org/api#>
+prefix wbo: <https://wikibus.org/ontology#>
+
+<>
+  wba:wishlistOf <../jelcz> ;
+  hydra:memberAssertion
+    [
+      hydra:property wbo:brochure ;
+      hydra:object <../jelcz> ;
+    ] ;
+.

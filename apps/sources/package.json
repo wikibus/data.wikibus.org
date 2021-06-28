@@ -9,6 +9,7 @@
   "scripts": {
     "init": "knossos init",
     "bootstrap": "talos put --vocabs --resources --api https://sources.wikibus.lndo.site --endpoint http://db.wikibus.lndo.site/repositories/wikibus --user wikibus --password wikibus --extraVocabs @wikibus/vocabularies",
+    "bootstrap:example": "talos put --resources --api https://sources.wikibus.lndo.site --endpoint http://db.wikibus.lndo.site/repositories/wikibus --user wikibus --password wikibus --dir resources.local",
     "start": "node -r ts-node/register node_modules/.bin/knossos serve http://store:10035/repositories/wikibus?infer=true --name wikibus --authModule ./middleware/authenticate-local --codePath ./lib --user wikibus --password wikibus"
   },
   "dependencies": {

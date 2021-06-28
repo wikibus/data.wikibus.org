@@ -1,0 +1,31 @@
+PREFIX wbo: <https://wikibus.org/ontology#>
+PREFIX wba: <https://wikibus.org/api#>
+PREFIX hydra: <http://www.w3.org/ns/hydra/core#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX bibo: <http://purl.org/ontology/bibo/>
+PREFIX opus: <http://lsdis.cs.uga.edu/projects/semdis/opus#>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX schema: <http://schema.org/>
+PREFIX dcat: <http://www.w3.org/ns/dcat#>
+
+ENTRYPOINT "brochure/jelcz"
+
+HEADERS {
+    X-Class "Admin"
+    X-User "john-doe"
+}
+
+
+With Class wbo:Brochure {
+    Expect Property wba:wishlist {
+        Expect Operation wba:AddToWishlistAction {
+            Invoke {
+                Expect Status 201
+            }
+
+            Invoke {
+                Expect Status 204
+            }
+        }
+    }
+}

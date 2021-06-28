@@ -1,0 +1,34 @@
+PREFIX acl: <http://www.w3.org/ns/auth/acl#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX dash: <http://datashapes.org/dash#>
+PREFIX sh: <http://www.w3.org/ns/shacl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+prefix wbo: <https://wikibus.org/ontology#>
+prefix wba: <https://wikibus.org/api#>
+
+<>
+  a sh:NodeShape ;
+  sh:targetClass wba:WishlistItem ;
+  sh:property
+    [
+      sh:path wbo:brochure ;
+      sh:minCount 1 ;
+      sh:maxCount 1 ;
+      sh:class wbo:Brochure ;
+      dash:readOnly true ;
+      dash:hidden true ;
+    ],
+    [
+      sh:path acl:owner ;
+      sh:minCount 1 ;
+      sh:maxCount 1 ;
+      dash:readOnly true ;
+      dash:hidden true ;
+    ],
+    [
+      sh:path wbo:done ;
+      sh:maxCount 1 ;
+      sh:datatype xsd:boolean ;
+      sh:defaultValue false ;
+    ]
+.

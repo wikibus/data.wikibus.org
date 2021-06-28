@@ -1,0 +1,15 @@
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX bibo: <http://purl.org/ontology/bibo/>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX opus: <http://lsdis.cs.uga.edu/projects/semdis/opus#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+prefix wbo: <https://wikibus.org/ontology#>
+
+<>
+  a wbo:Brochure ;
+  opus:year "2000"^^xsd:gYear ;
+  dcterms:created "2021-06-22T10:23:57"^^xsd:dateTime ;
+  dcterms:title "Jelczańskie Zakłady Samochodowe" ;
+  bibo:pages 12 ;
+  rdfs:comment "Kserokopia" ;
+.

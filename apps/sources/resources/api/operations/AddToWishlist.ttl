@@ -6,6 +6,7 @@ prefix knossos: <https://hypermedia.app/knossos#>
 prefix auth: <https://hypermedia.app/auth#>
 
 <>
+  a wba:AddToWishlistAction ;
   knossos:supportedByProperty wba:wishlist ;
   hydra:apiDocumentation </api> ;
   hydra:method "POST" ;

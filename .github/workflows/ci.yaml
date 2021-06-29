@@ -29,7 +29,7 @@ jobs:
       - name: Install lando
         run: sh .github/install-lando.sh
       - name: Start site
-        run: sh .github/start-lando.sh
+        run: lando start
       - run: yarn bootstrap
         working-directory: apps/sources
 

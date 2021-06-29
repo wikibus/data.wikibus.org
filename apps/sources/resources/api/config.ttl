@@ -3,7 +3,7 @@ PREFIX schema: <http://schema.org/>
 prefix knossos: <https://hypermedia.app/knossos#>
 
 <>
-  knossos:environment <#prod> , <#dev> ;
+  knossos:environment <#prod>, <#dev>, <#ci> ;
   knossos:service
     [
       schema:name "IMAGES" ;
@@ -28,17 +28,18 @@ prefix knossos: <https://hypermedia.app/knossos#>
     ] ;
 .
 
+_:devFileService
+  schema:name "FileService" ;
+  code:implementedBy
+    [
+      a code:EcmaScript ;
+      code:link <node:@wikibus/dev-services#FileService> ;
+    ] ;
+.
+
 <#dev>
   schema:identifier "DEV" ;
-  knossos:service
-    [
-      schema:name "FileService" ;
-      code:implementedBy
-        [
-          a code:EcmaScript ;
-          code:link <node:@wikibus/dev-services#FileService> ;
-        ] ;
-    ]
+  knossos:service _:devFileService ;
 .
 
 <#prod>
@@ -56,4 +57,17 @@ prefix knossos: <https://hypermedia.app/knossos#>
             ) ;
         ] ;
     ]
+.
+
+<#ci>
+  schema:name "FileService" ;
+  knossos:service
+    [
+      schema:name "IMAGES" ;
+      code:implementedBy
+        [
+          a code:EcmaScript ;
+          code:link <node:@wikibus/dev-services#ImageService> ;
+        ] ;
+    ] ;
 .

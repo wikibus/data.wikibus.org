@@ -30,7 +30,7 @@ jobs:
         run: sh .github/install-lando.sh
       - name: Start site
         run: sh .github/start-lando.sh
-      - run: yarn bootstrap:all
+      - run: yarn bootstrap
         working-directory: apps/sources
 
       - name: Hydra e2e tests

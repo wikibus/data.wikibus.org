@@ -8,8 +8,9 @@
   "private": true,
   "scripts": {
     "init": "knossos init",
-    "bootstrap": "talos put --vocabs --resources --api https://sources.wikibus.lndo.site --endpoint http://db.wikibus.lndo.site/repositories/wikibus --user wikibus --password wikibus --extraVocabs @wikibus/vocabularies",
+    "bootstrap:api": "talos put --vocabs --resources --api https://sources.wikibus.lndo.site --endpoint http://db.wikibus.lndo.site/repositories/wikibus --user wikibus --password wikibus --extraVocabs @wikibus/vocabularies",
     "bootstrap:example": "talos put --resources --api https://sources.wikibus.lndo.site --endpoint http://db.wikibus.lndo.site/repositories/wikibus --user wikibus --password wikibus --dir resources.local",
+    "bootstrap:all": "run-p bootstrap:*",
     "start": "node -r ts-node/register node_modules/.bin/knossos serve http://store:10035/repositories/wikibus?infer=true --name wikibus --authModule ./middleware/authenticate-local --codePath ./lib --user wikibus --password wikibus"
   },
   "dependencies": {
@@ -48,6 +49,7 @@
     "@types/rdf-ext": "^1",
     "@types/clownface": "^1",
     "@types/nanoid": "^3.0.0",
+    "npm-run-all": "^4.1.5",
     "ts-node": "^10.0.0",
     "typescript": "^4.3.2"
   }

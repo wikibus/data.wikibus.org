@@ -453,10 +453,10 @@
     sparql-http-client "^2.2.3"
     stream-to-promise "^3.0.0"
 
-"@hydrofoil/labyrinth@^0.5.1", "@hydrofoil/labyrinth@^0.5.2":
-  version "0.5.2"
-  resolved "https://registry.yarnpkg.com/@hydrofoil/labyrinth/-/labyrinth-0.5.2.tgz#a7557368784d2e8c463236bde7a9462664adec6f"
-  integrity sha512-D6DT43RPx637w2ttX+uWI3mGYrmBCdnnc1I6kxYzUaGspt7t3n+AE/1p1fDaSKedlAU1OH1eMVatMq1tAZUpCQ==
+"@hydrofoil/labyrinth@^0.5.1", "@hydrofoil/labyrinth@^0.5.3":
+  version "0.5.3"
+  resolved "https://registry.yarnpkg.com/@hydrofoil/labyrinth/-/labyrinth-0.5.3.tgz#152b16b9d1c6b88707e846a8a63691331ed15f36"
+  integrity sha512-tcMMcQlZZGyWUEzHWISvLN5jwspSPxUckec6h62BKMsv9iKGgvbEzQiX4vYsJXI6EFP5ZknFAKxqSF3zUbegVQ==
   dependencies:
     "@hydrofoil/vocabularies" "^0.1.6"
     "@rdfine/hydra" "^0.6.6"

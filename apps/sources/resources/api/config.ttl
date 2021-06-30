@@ -60,8 +60,9 @@ _:devFileService
 .
 
 <#ci>
-  schema:name "FileService" ;
+  schema:identifier "CI" ;
   knossos:service
+    _:devFileService,
     [
       schema:name "IMAGES" ;
       code:implementedBy

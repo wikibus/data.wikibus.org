@@ -28,8 +28,7 @@ jobs:
           docker_version: 20.10.3
       - name: Install lando
         run: sh .github/install-lando.sh
-      - name: Set up env
-        run: echo "ENV=CI" >> .env
+      - uses: iamsauravsharma/create-dotenv@v1.2.0
       - name: Start site
         run: lando start
       - run: yarn bootstrap

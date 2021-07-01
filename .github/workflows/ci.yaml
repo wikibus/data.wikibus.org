@@ -2,6 +2,9 @@ name: CI
 
 on: [push, pull_request]
 
+env:
+  CI_ENV: CI
+
 jobs:
   lint:
     runs-on: ubuntu-latest
@@ -29,6 +32,8 @@ jobs:
       - name: Install lando
         run: sh .github/install-lando.sh
       - uses: iamsauravsharma/create-dotenv@v1.2.0
+        with:
+          env-prefix: 'CI_'
       - name: Start site
         run: lando start
       - run: yarn bootstrap
